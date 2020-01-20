@@ -4,14 +4,13 @@
 	<include resource="org/springframework/boot/logging/logback/console-appender.xml" />
 	<logger name="org.springframework" level="warn" />
 
-	<property name="DEV_HOME" value="/home/users/rp/data" />
-	<property name="LOG_HOME" value="/home/users/rp/log" />
+	<property name="LOG_HOME" value="/home/users/rp" />
 	<property name="MAX_FILE_SIZE" value="50MB" />
 	<property name="LOG_NAME" value="logger" />
 
 	<!-- 콘솔 및 기본 로깅 지정 -->
 	<appender name="LogConsole" class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<file>${LOG_HOME}/${LOG_NAME}.log</file>
+		<file>${LOG_HOME}/log/${LOG_NAME}.log</file>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
 			<fileNamePattern>${LOG_HOME}/archived/${LOG_NAME}_%d{yyyyMMdd}.log
 			</fileNamePattern>
@@ -29,7 +28,7 @@
 
 	<!-- 특정 클래스파일에 대한 로거 지정 -->
 	<appender name="LogImpp" class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<File>${DEV_HOME}/${LOG_NAME}_ext.log</File>
+		<File>${LOG_HOME}/data/${LOG_NAME}_ext.log</File>
 		<encoder>
 			<pattern>%m%n</pattern>
 		</encoder>
