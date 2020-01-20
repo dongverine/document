@@ -1,5 +1,5 @@
 # 실행 명령어
->java   -Dcom.sun.management.jmxremote=true \\
+java   -Dcom.sun.management.jmxremote=true \\
         -Dcom.sun.management.jmxremote.port=**8180** \\
         -Dcom.sun.management.jmxremote.authenticate=false \\
         -Dcom.sun.management.jmxremote.ssl=false \\
