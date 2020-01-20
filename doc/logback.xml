@@ -8,8 +8,8 @@
 	<property name="LOG_HOME" value="/home/users/rp/log" />
 	<property name="MAX_FILE_SIZE" value="50MB" />
 	<property name="LOG_NAME" value="logger" />
-	
-	<!-- 콘솔 및 기본 로깅 지정  -->
+
+	<!-- 콘솔 및 기본 로깅 지정 -->
 	<appender name="LogConsole" class="ch.qos.logback.core.rolling.RollingFileAppender">
 		<file>${LOG_HOME}/${LOG_NAME}.log</file>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
@@ -21,15 +21,14 @@
 			<Pattern>%d{yy-MM-dd HH:mm:ss.SSS} ${PID} [%-23t] %6p %-40.40logger{39}:%-5L - %msg%n</Pattern>
 		</encoder>
 	</appender>
-    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
-        <layout class="ch.qos.logback.classic.PatternLayout">
-            <Pattern>%d{yy-MM-dd HH:mm:ss.SSS} ${PID} [%-23t] %6p %-40.40logger{39}:%-5L - %msg%n</Pattern>
-        </layout>
-    </appender>
-	
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<Pattern>%d{yy-MM-dd HH:mm:ss.SSS} ${PID} [%-23t] %6p %-40.40logger{39}:%-5L - %msg%n</Pattern>
+		</layout>
+	</appender>
+
 	<!-- 특정 클래스파일에 대한 로거 지정 -->
-	<appender name="LogImpp"
-		class="ch.qos.logback.core.rolling.RollingFileAppender">
+	<appender name="LogImpp" class="ch.qos.logback.core.rolling.RollingFileAppender">
 		<File>${DEV_HOME}/${LOG_NAME}_ext.log</File>
 		<encoder>
 			<pattern>%m%n</pattern>
@@ -42,21 +41,22 @@
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
 			<maxHistory>28</maxHistory>
 			<!-- 날짜별 폴더 생성해서 백업하기 -->
-			<fileNamePattern>${DEV_HOME}/%d{dd, aux}/${LOG_NAME}_ext.%d{yyyy-MM-dd}.%i.${ImppFileExt}</fileNamePattern>
+			<fileNamePattern>${DEV_HOME}/%d{dd, aux}/${LOG_NAME}_ext.%d{yyyy-MM-dd}.%i.${ImppFileExt}
+			</fileNamePattern>
 			<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
 				<maxFileSize>${MAX_FILE_SIZE}</maxFileSize>
 			</timeBasedFileNamingAndTriggeringPolicy>
 		</rollingPolicy>
 	</appender>
-	
+
 	<!-- 특정 클래스파일에 대한 로거 지정 -->
 	<logger name="com.dongverine.logging.OutFileLogImpp" level="INFO" additivity="false">
 		<appender-ref ref="LogImpp" />
 	</logger>
-	
-	
+
+
 	<root level="INFO">
 		<appender-ref ref="LogConsole" />
 		<appender-ref ref="STDOUT" />
-	</root>	
+	</root>
 </configuration>
