@@ -1,3 +1,3 @@
 # 실행 명령어
 * JAVA
-    - [VisualVM](http://www.google.co.kr)
+    - [VisualVM](https://github.com/dongverine/document/blob/master/doc/JAVA_VisualVM.md)
