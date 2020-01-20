@@ -40,7 +40,7 @@
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
 			<maxHistory>28</maxHistory>
 			<!-- 날짜별 폴더 생성해서 백업하기 -->
-			<fileNamePattern>${LOG_HOME}/%d{dd, aux}/${LOG_NAME}_ext.%d{yyyy-MM-dd}.%i.${ImppFileExt}
+			<fileNamePattern>${LOG_HOME}/%d{dd, aux}/${LOG_NAME}_ext.%d{yyyy-MM-dd}.%i.log
 			</fileNamePattern>
 			<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
 				<maxFileSize>${MAX_FILE_SIZE}</maxFileSize>
